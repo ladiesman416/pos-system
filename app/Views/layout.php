@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
+   <link rel="stylesheet" href="<?= base_url('css/style.css') ?>">
+
 <head>
     <meta charset="UTF-8">
     <title>POS System</title>

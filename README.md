@@ -60,6 +60,15 @@ If that port is busy, the server uses another one, such as 8081. Change `app.bas
 - Live site: <your hosted link>
 - Repository: https://github.com/ladiesman416/pos-system
 
+   ## Setup
+
+   Requirements: PHP, MySQL or MariaDB (XAMPP works), Composer.
+
+   1. Clone this repository.
+   2. Create a database named `pos_system` in phpMyAdmin, then use the **Import** tab to import `database/pos_system.sql`.
+   3. Copy `env` to `.env` and set the `database.default.*` values to match your MySQL credentials.
+   4. Run `php spark serve` and open the URL shown in the terminal.
+
 ## Author
 
 - Name: Kyle Rianne Andrei D. Dionio
