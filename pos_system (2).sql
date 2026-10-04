@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 04, 2026 at 06:15 PM
+-- Generation Time: Oct 04, 2026 at 08:15 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -58,19 +58,21 @@ CREATE TABLE `users` (
   `username` varchar(50) NOT NULL,
   `full_name` varchar(100) NOT NULL,
   `created_at` datetime NOT NULL,
-  `avatar` varchar(255) DEFAULT NULL
+  `avatar` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `full_name`, `created_at`, `avatar`) VALUES
-(1, 'admin', 'System Admin', '2026-10-02 16:47:48', NULL),
-(2, 'cashier1', 'Pedro Garcia', '2026-10-02 16:47:48', NULL),
-(3, 'cashier2', 'Rosa Lim', '2026-10-02 16:47:48', NULL),
-(4, 'manager', 'Grace Tan', '2026-10-02 16:47:48', NULL),
-(5, 'staff1', 'Mark Villanueva', '2026-10-02 16:47:48', NULL);
+INSERT INTO `users` (`id`, `username`, `full_name`, `created_at`, `avatar`, `password`) VALUES
+(1, 'admin', 'System Admin', '2026-10-02 16:47:48', NULL, '$2y$10$rW4xuYWb7vyqoilPvjYqeu2vo4RSw6k0GKg1gowhVyTB3xjs5MTzq'),
+(2, 'cashier1', 'Pedro Garcia', '2026-10-02 16:47:48', NULL, '$2y$10$rW4xuYWb7vyqoilPvjYqeu2vo4RSw6k0GKg1gowhVyTB3xjs5MTzq'),
+(3, 'cashier2', 'Rosa Lim', '2026-10-02 16:47:48', NULL, '$2y$10$rW4xuYWb7vyqoilPvjYqeu2vo4RSw6k0GKg1gowhVyTB3xjs5MTzq'),
+(4, 'manager', 'Grace Tan', '2026-10-02 16:47:48', NULL, '$2y$10$rW4xuYWb7vyqoilPvjYqeu2vo4RSw6k0GKg1gowhVyTB3xjs5MTzq'),
+(5, 'staff1', 'Mark Villanueva', '2026-10-02 16:47:48', NULL, '$2y$10$rW4xuYWb7vyqoilPvjYqeu2vo4RSw6k0GKg1gowhVyTB3xjs5MTzq'),
+(6, 'killuazoldyck', 'killuazoldyck@example.com', '0000-00-00 00:00:00', NULL, '$2y$10$rW4xuYWb7vyqoilPvjYqeu2vo4RSw6k0GKg1gowhVyTB3xjs5MTzq');
 
 --
 -- Indexes for dumped tables
@@ -103,7 +105,7 @@ ALTER TABLE `customers`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

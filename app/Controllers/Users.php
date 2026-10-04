@@ -93,7 +93,7 @@ class Users extends BaseController
             ]);
         }
 
-        $        $data = [
+        $data = [
             'username'  => $this->request->getPost('username'),
             'full_name' => $this->request->getPost('full_name'),
         ];

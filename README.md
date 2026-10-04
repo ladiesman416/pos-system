@@ -79,6 +79,22 @@ If that port is busy, the server uses another one, such as 8081. Change `app.bas
 3. Make sure public/uploads/avatars is writable
 4. Run: php spark serve
 
+## TFA4: Authentication
+- Login with password_hash() / password_verify()
+- Session-based login state (isLoggedIn, user_id, username)
+- AuthFilter protects all customers and users routes
+- Logout destroys the session
+
+## Test Login
+- Username: admin
+- Password: admin123
+
+## Setup
+1. Import database/pos_system.sql in phpMyAdmin
+2. Copy env to .env and set the database credentials
+3. Make sure public/uploads/avatars is writable
+4. Run: php spark serve
+
 ## Author
 
 - Name: Kyle Rianne Andrei D. Dionio
