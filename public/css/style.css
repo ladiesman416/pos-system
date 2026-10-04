@@ -94,6 +94,7 @@ form label {
 }
 
 form input[type="text"],
+form input[type="password"],
 form input[type="file"] {
     width: 100%;
     padding: 8px 10px;
@@ -163,3 +164,4 @@ table img {
     object-fit: cover;
     vertical-align: middle;
 }
+

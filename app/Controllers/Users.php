@@ -39,12 +39,14 @@ class Users extends BaseController
                 'action'     => site_url('users/create'),
                 'title'      => 'New User',
                 'validation' => $this->validator,
+                'password' => 'required|min_length[6]',
             ]);
         }
 
         (new UserModel())->insert([
             'username'  => $this->request->getPost('username'),
             'full_name' => $this->request->getPost('full_name'),
+            'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
         ]);
         return redirect()->to('/users');
     }
@@ -91,10 +93,15 @@ class Users extends BaseController
             ]);
         }
 
-        $data = [
+        $        $data = [
             'username'  => $this->request->getPost('username'),
             'full_name' => $this->request->getPost('full_name'),
         ];
+
+        $newPassword = $this->request->getPost('password');
+        if (! empty($newPassword)) {
+            $data['password'] = password_hash($newPassword, PASSWORD_DEFAULT);
+        }
 
         if ($hasUpload && $file->isValid() && ! $file->hasMoved()) {
             $dir     = FCPATH . 'uploads/avatars/';

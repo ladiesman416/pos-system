@@ -34,7 +34,13 @@
             <?php endif; ?>
         </p>
     <?php endif; ?>
-
+        <p>
+            <label>Password<?= $user ? ' (leave blank to keep current)' : '' ?></label><br>
+            <input type="password" name="password">
+            <?php if (isset($validation) && $validation->hasError('password')): ?>
+                <br><span class="error"><?= $validation->getError('password') ?></span>
+            <?php endif; ?>
+        </p>
     <button type="submit">Save</button>
     <a href="<?= site_url('users') ?>">Cancel</a>
 </form>
