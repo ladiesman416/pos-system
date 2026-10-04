@@ -60,7 +60,7 @@ If that port is busy, the server uses another one, such as 8081. Change `app.bas
 - Live site: <your hosted link>
 - Repository: https://github.com/ladiesman416/pos-system
 
-   ## Setup
+## Setup
 
    Requirements: PHP, MySQL or MariaDB (XAMPP works), Composer.
 
@@ -68,6 +68,16 @@ If that port is busy, the server uses another one, such as 8081. Change `app.bas
    2. Create a database named `pos_system` in phpMyAdmin, then use the **Import** tab to import `database/pos_system.sql`.
    3. Copy `env` to `.env` and set the `database.default.*` values to match your MySQL credentials.
    4. Run `php spark serve` and open the URL shown in the terminal.
+
+## TFA3 Features
+- Add/edit customers and users with validation
+- Avatar upload (JPG/PNG, max 2MB) with 150x150 thumbnail
+
+## Setup
+1. Import database/pos_system.sql in phpMyAdmin
+2. Copy env to .env and set the database credentials
+3. Make sure public/uploads/avatars is writable
+4. Run: php spark serve
 
 ## Author
 

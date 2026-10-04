@@ -71,3 +71,95 @@ tr:nth-child(even) td {
 tr:hover td {
     background: #eaf3ee;
 }
+
+/* ---------- Forms (customers/form.php, users/form.php) ---------- */
+form {
+    max-width: 420px;
+    margin: 20px 0;
+    padding: 20px 24px;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+form p {
+    margin: 0 0 16px;
+}
+
+form label {
+    display: inline-block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #333;
+}
+
+form input[type="text"],
+form input[type="file"] {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+form input[type="text"]:focus {
+    outline: none;
+    border-color: #2f6fed;
+    box-shadow: 0 0 0 2px rgba(47, 111, 237, 0.2);
+}
+
+form button[type="submit"] {
+    padding: 8px 20px;
+    background: #2f6fed;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+form button[type="submit"]:hover {
+    background: #1f57c4;
+}
+
+form a {
+    margin-left: 12px;
+    color: #666;
+    text-decoration: none;
+}
+
+form a:hover {
+    text-decoration: underline;
+}
+
+/* Validation messages */
+.error {
+    color: #c62828;
+    font-size: 0.9em;
+}
+
+/* ---------- "Add New" and "Edit" links on the listing pages ---------- */
+.btn {
+    display: inline-block;
+    padding: 6px 14px;
+    background: #2f6fed;
+    color: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: #1f57c4;
+}
+
+.add-link {
+    margin: 10px 0;
+}
+
+/* Avatar thumbnails in the Users table */
+table img {
+    border-radius: 50%;
+    object-fit: cover;
+    vertical-align: middle;
+}
