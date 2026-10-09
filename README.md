@@ -1,102 +1,77 @@
-# POS System: Foundations
+# POS System — TFA4: Who's Allowed In? Sessions and Authentication
 
-A four-page website built with CodeIgniter 4. It is the first version of a Point-of-Sale (POS) system,
-made for IT0049 (Web System Technologies), TFA 1: From Zero to Four Pages.
+**Course:** IT0049 Web System Technologies
+**Author:** Kyle Rianne Andrei Dionio ([@ladiesman416](https://github.com/ladiesman416))
+**Live site:** http://pos-kyle.gt.tc/tfa4/
 
-There is no database yet. The Customers and Users pages show records from static PHP arrays.
+A simple Point-of-Sale (POS) web app built with **CodeIgniter 4** and **MySQL**. This activity adds **sessions and authentication** on top of the previous activity (forms, validation and avatar upload), so only logged-in users can see the customers and users pages.
 
-## Pages
+## Features
 
-| URL          | What it shows                              |
-|--------------|--------------------------------------------|
-| `/`          | Landing page                               |
-| `/about`     | About page                                 |
-| `/customers` | Customer Accounts (name, email, phone)     |
-| `/users`     | User Accounts (username, name, role)       |
+- **Login page** that checks the username and password against the database
+- **Password hashing** with `password_hash()` when saving, and `password_verify()` when logging in
+- **Authentication filter** protecting the `/customers` and `/users` routes; logged-out visitors are redirected to the login page
+- **Logout** that ends the session
+- **Customers and Users management** with new/edit forms, validation and avatar upload with thumbnail (from TFA3)
+- **Responsive navbar**, card layout and hover/fade effects (`public/css/style.css`)
 
-## What You Need
+## Tech Stack
 
-- PHP 8.1 or higher
-- Composer
+- PHP 8+ with CodeIgniter 4
+- MySQL (MySQLi driver)
+- HTML and CSS
+- Hosted on InfinityFree
 
-## How to Set Up
+## Project Structure
 
-1. Download or clone this repository:
 ```
-   git clone https://github.com/ladiesman416/pos-system.git
-   cd pos-system
+app/
+  Config/        Routes, filters, database and app settings
+  Controllers/   Page, customer, user and auth logic
+  Filters/       Auth filter that guards protected routes
+  Models/        CustomerModel, UserModel
+  Views/         Pages, forms and layout templates
+public/
+  css/style.css  Styles
+  uploads/       Uploaded avatars
+writable/        Sessions, logs and cache
 ```
-2. Install the dependencies:
-```
-   composer install
-```
-3. Copy the file named `env` and rename the copy to `.env`.
-4. Open `.env` and remove the `#` in front of these two lines, then set them like this:
-```
+
+## Run Locally
+
+1. Install [XAMPP](https://www.apachefriends.org/) and [Composer](https://getcomposer.org/), then clone this repository.
+2. Start **MySQL** in the XAMPP Control Panel.
+3. Open `http://localhost/phpmyadmin`, create a database named `pos_system`, and import the exported `.sql` file.
+4. Copy `env` to `.env` and set:
+   ```
    CI_ENVIRONMENT = development
    app.baseURL = 'http://localhost:8080/'
-```
 
-## How to Run
+   database.default.hostname = localhost
+   database.default.database = pos_system
+   database.default.username = root
+   database.default.password =
+   database.default.DBDriver = MySQLi
+   database.default.port = 3306
+   ```
+5. In the project folder, run `composer install` (if the `vendor` folder is missing).
+6. Start the server with `php spark serve`, then open the URL it prints. If it uses another port (for example 8081), set `app.baseURL` to match.
 
-```
-php spark serve
-```
+## How to Test Authentication
 
-Open the address shown in the terminal in your browser (usually `http://localhost:8080`).
-If that port is busy, the server uses another one, such as 8081. Change `app.baseURL` in `.env` to match.
+1. While logged out, open `/customers` or `/users`. You should be redirected to the login page.
+2. Log in with a wrong password. You should see an error and stay logged out.
+3. Log in with a correct account. You should be taken in and the protected pages should load.
+4. Click **Logout**, then open `/customers` again. You should be sent back to the login page.
 
-## Main Files
+## Deployment
 
-- `app/Config/Routes.php`: the routes for the four pages
-- `app/Controllers/Pages.php`: landing and about pages
-- `app/Controllers/Customers.php`: customer list (static array)
-- `app/Controllers/Users.php`: user list (static array)
-- `app/Views/layout.php`: shared layout with the navigation bar
-- `app/Views/pages/`, `app/Views/customers/`, `app/Views/users/`: the page views
+The project is hosted on InfinityFree in the `htdocs/tfa4/` folder. A root `.htaccess` sends requests to the `public/` folder, and the live `.env` uses the hosting database settings and `app.baseURL = 'http://pos-kyle.gt.tc/tfa4/'`.
 
-## Links
+> The `.env` file is not committed to this repository because it contains database credentials.
 
-- Live site: <your hosted link>
-- Repository: https://github.com/ladiesman416/pos-system
+## Previous Activities
 
-## Setup
-
-   Requirements: PHP, MySQL or MariaDB (XAMPP works), Composer.
-
-   1. Clone this repository.
-   2. Create a database named `pos_system` in phpMyAdmin, then use the **Import** tab to import `database/pos_system.sql`.
-   3. Copy `env` to `.env` and set the `database.default.*` values to match your MySQL credentials.
-   4. Run `php spark serve` and open the URL shown in the terminal.
-
-## TFA3 Features
-- Add/edit customers and users with validation
-- Avatar upload (JPG/PNG, max 2MB) with 150x150 thumbnail
-
-## Setup
-1. Import database/pos_system.sql in phpMyAdmin
-2. Copy env to .env and set the database credentials
-3. Make sure public/uploads/avatars is writable
-4. Run: php spark serve
-
-## TFA4: Authentication
-- Login with password_hash() / password_verify()
-- Session-based login state (isLoggedIn, user_id, username)
-- AuthFilter protects all customers and users routes
-- Logout destroys the session
-
-## Test Login
-- Username: admin
-- Password: admin123
-
-## Setup
-1. Import database/pos_system.sql in phpMyAdmin
-2. Copy env to .env and set the database credentials
-3. Make sure public/uploads/avatars is writable
-4. Run: php spark serve
-
-## Author
-
-- Name: Kyle Rianne Andrei D. Dionio
-- Section: TC33
-- Professor: Von Erick Magbitang
+- TFA1: http://pos-kyle.gt.tc/
+- TFA2 (From Arrays to a Real Database): http://pos-kyle.gt.tc/tfa2/
+- TFA3 (Forms, Validation and File Upload): local project
