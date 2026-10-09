@@ -74,4 +74,4 @@ The project is hosted on InfinityFree in the `htdocs/tfa4/` folder. A root `.hta
 
 - TFA1: http://pos-kyle.gt.tc/
 - TFA2 (From Arrays to a Real Database): http://pos-kyle.gt.tc/tfa2/
-- TFA3 (Forms, Validation and File Upload): local project
+- TFA3 (Forms, Validation and File Upload): (http://pos-kyle.gt.tc/tfa3/)
